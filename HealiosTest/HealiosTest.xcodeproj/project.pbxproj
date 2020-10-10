@@ -10,8 +10,6 @@
 		22AECB626BE8C709E4BDFFE4 /* Pods_HealiosTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */; };
 		7AD9231D795C76DF2D3920DA /* Pods_HealiosTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C523B1542CAA670786B3DE95 /* Pods_HealiosTestTests.framework */; };
 		DF31920925319D3D003485C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31920825319D3D003485C2 /* AppDelegate.swift */; };
-		DF31920D25319D3D003485C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31920C25319D3D003485C2 /* ViewController.swift */; };
-		DF31921025319D3D003485C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF31920E25319D3D003485C2 /* Main.storyboard */; };
 		DF31921225319D40003485C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF31921125319D40003485C2 /* Assets.xcassets */; };
 		DF31921525319D40003485C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF31921325319D40003485C2 /* LaunchScreen.storyboard */; };
 		DF31922025319D40003485C2 /* HealiosTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31921F25319D40003485C2 /* HealiosTestTests.swift */; };
@@ -22,6 +20,11 @@
 		DF3192372531A090003485C2 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192362531A090003485C2 /* RootViewModel.swift */; };
 		DF3192392531A09F003485C2 /* RootView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF3192382531A09F003485C2 /* RootView.storyboard */; };
 		DF31923C2531A103003485C2 /* StoryboardInitiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31923B2531A103003485C2 /* StoryboardInitiable.swift */; };
+		DF31923F2531A343003485C2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31923E2531A343003485C2 /* APIClient.swift */; };
+		DF3192412531A37D003485C2 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192402531A37D003485C2 /* APIError.swift */; };
+		DF3192432531A3B8003485C2 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192422531A3B8003485C2 /* APIConfiguration.swift */; };
+		DF3192452531A3EB003485C2 /* OnResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192442531A3EB003485C2 /* OnResult.swift */; };
+		DF3192482531A40F003485C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192472531A40F003485C2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +44,6 @@
 		D9FBF9C0564222C76DFF1F2D /* Pods-HealiosTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTest.debug.xcconfig"; path = "Target Support Files/Pods-HealiosTest/Pods-HealiosTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DF31920525319D3D003485C2 /* HealiosTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealiosTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF31920825319D3D003485C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF31920C25319D3D003485C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DF31920F25319D3D003485C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF31921125319D40003485C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF31921425319D40003485C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF31921625319D40003485C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +57,11 @@
 		DF3192362531A090003485C2 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		DF3192382531A09F003485C2 /* RootView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootView.storyboard; sourceTree = "<group>"; };
 		DF31923B2531A103003485C2 /* StoryboardInitiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitiable.swift; sourceTree = "<group>"; };
+		DF31923E2531A343003485C2 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		DF3192402531A37D003485C2 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		DF3192422531A3B8003485C2 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		DF3192442531A3EB003485C2 /* OnResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnResult.swift; sourceTree = "<group>"; };
+		DF3192472531A40F003485C2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,12 +118,11 @@
 		DF31920725319D3D003485C2 /* HealiosTest */ = {
 			isa = PBXGroup;
 			children = (
+				DF31923D2531A31D003485C2 /* Networking */,
 				DF31923A2531A0ED003485C2 /* Helpers */,
 				DF3192302531A01E003485C2 /* Scenes */,
 				DF31922D25319FB6003485C2 /* Base */,
 				DF31922A25319F62003485C2 /* Bootstrap */,
-				DF31920C25319D3D003485C2 /* ViewController.swift */,
-				DF31920E25319D3D003485C2 /* Main.storyboard */,
 				DF31921125319D40003485C2 /* Assets.xcassets */,
 				DF31921325319D40003485C2 /* LaunchScreen.storyboard */,
 				DF31921625319D40003485C2 /* Info.plist */,
@@ -174,8 +179,20 @@
 			isa = PBXGroup;
 			children = (
 				DF31923B2531A103003485C2 /* StoryboardInitiable.swift */,
+				DF3192472531A40F003485C2 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DF31923D2531A31D003485C2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DF31923E2531A343003485C2 /* APIClient.swift */,
+				DF3192402531A37D003485C2 /* APIError.swift */,
+				DF3192422531A3B8003485C2 /* APIConfiguration.swift */,
+				DF3192442531A3EB003485C2 /* OnResult.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		F3C0EBBC34295384546FFE14 /* Pods */ = {
@@ -276,7 +293,6 @@
 				DF31921525319D40003485C2 /* LaunchScreen.storyboard in Resources */,
 				DF3192392531A09F003485C2 /* RootView.storyboard in Resources */,
 				DF31921225319D40003485C2 /* Assets.xcassets in Resources */,
-				DF31921025319D3D003485C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,11 +377,15 @@
 				DF31922F25319FC9003485C2 /* Coordinator.swift in Sources */,
 				DF3192372531A090003485C2 /* RootViewModel.swift in Sources */,
 				DF31922C25319F7F003485C2 /* AppCoordinator.swift in Sources */,
+				DF3192412531A37D003485C2 /* APIError.swift in Sources */,
 				DF3192352531A083003485C2 /* RootViewController.swift in Sources */,
 				DF3192332531A042003485C2 /* RootCoordinator.swift in Sources */,
-				DF31920D25319D3D003485C2 /* ViewController.swift in Sources */,
+				DF3192482531A40F003485C2 /* Constants.swift in Sources */,
+				DF3192432531A3B8003485C2 /* APIConfiguration.swift in Sources */,
 				DF31923C2531A103003485C2 /* StoryboardInitiable.swift in Sources */,
+				DF3192452531A3EB003485C2 /* OnResult.swift in Sources */,
 				DF31920925319D3D003485C2 /* AppDelegate.swift in Sources */,
+				DF31923F2531A343003485C2 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,14 +408,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DF31920E25319D3D003485C2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF31920F25319D3D003485C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DF31921325319D40003485C2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
