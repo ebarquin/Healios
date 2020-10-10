@@ -22,6 +22,11 @@ final class RootCoordinator: Coordinator {
     
     private func setupViewController() -> UIViewController {
         let viewController = RootViewController.initFromStoryboard()
+        let commentRepository = CommentRepositoryDefault()
+        let userRepository = UserRepositoryDefault()
+        let postRepository = PostRepositoryDefault()
+        let viewModel = RootViewModel(commentRepository: commentRepository, userRepository: userRepository, postRepository: postRepository)
+        viewController.viewModel = viewModel
     
         return viewController
     }

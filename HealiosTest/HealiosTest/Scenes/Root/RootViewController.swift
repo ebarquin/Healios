@@ -11,4 +11,12 @@ import UIKit
 class RootViewController: UIViewController, StoryboardInitiable {
     static var storyboardName: String = "RootView"
     
+    var viewModel: RootViewModel?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel?.fetchData()
+        
+    }
+    
 }
