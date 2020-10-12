@@ -55,6 +55,8 @@
 		DF31932725346019003485C2 /* CommentRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932625346019003485C2 /* CommentRepositoryTests.swift */; };
 		DF31932925346092003485C2 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = DF31932825346092003485C2 /* comments.json */; };
 		DF31932B25346ABD003485C2 /* CoreDataManagerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932A25346ABD003485C2 /* CoreDataManagerDefault.swift */; };
+		DF31932D2534AD7B003485C2 /* RootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932C2534AD7B003485C2 /* RootCell.swift */; };
+		DF31932F2534AF8F003485C2 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932E2534AF8F003485C2 /* PostEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		DF31932625346019003485C2 /* CommentRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepositoryTests.swift; sourceTree = "<group>"; };
 		DF31932825346092003485C2 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 		DF31932A25346ABD003485C2 /* CoreDataManagerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerDefault.swift; sourceTree = "<group>"; };
+		DF31932C2534AD7B003485C2 /* RootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCell.swift; sourceTree = "<group>"; };
+		DF31932E2534AF8F003485C2 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +240,7 @@
 				DF3192342531A083003485C2 /* RootViewController.swift */,
 				DF3192362531A090003485C2 /* RootViewModel.swift */,
 				DF3192382531A09F003485C2 /* RootView.storyboard */,
+				DF31932C2534AD7B003485C2 /* RootCell.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				DF3193002533AAE9003485C2 /* Article.xcdatamodeld */,
+				DF31932E2534AF8F003485C2 /* PostEntity.swift */,
 				DF3192702531BBC8003485C2 /* Comment.swift */,
 				DF3192722531BBD3003485C2 /* User.swift */,
 				DF3192742531BBDC003485C2 /* Post.swift */,
@@ -647,7 +653,9 @@
 				DF3192532531AC15003485C2 /* PostServiceRequest.swift in Sources */,
 				DF3192412531A37D003485C2 /* APIError.swift in Sources */,
 				DF31932B25346ABD003485C2 /* CoreDataManagerDefault.swift in Sources */,
+				DF31932F2534AF8F003485C2 /* PostEntity.swift in Sources */,
 				DF31927B2531BD62003485C2 /* FetchUserResponse+mapper.swift in Sources */,
+				DF31932D2534AD7B003485C2 /* RootCell.swift in Sources */,
 				DF31924F2531AA07003485C2 /* PostRepository.swift in Sources */,
 				DF3192712531BBC8003485C2 /* Comment.swift in Sources */,
 				DF3192642531B096003485C2 /* CommentServiceRequest.swift in Sources */,

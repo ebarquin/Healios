@@ -20,6 +20,7 @@ class RootViewModel {
     let posts = BehaviorRelay<[Post]>(value: [])
     let users = BehaviorRelay<[User]>(value: [])
     let comments = BehaviorRelay<[Comment]>(value: [])
+    let coreDataPosts = BehaviorRelay<[Post]>(value:[])
     let onGettingPosts = PublishSubject<Void>()
     let onGettinUsers = PublishSubject<Void>()
     let onGettinComments = PublishSubject<Void>()
@@ -39,6 +40,7 @@ class RootViewModel {
     }
     
     func fetchData() {
+        loadInProgress.accept(true)
         bind()
         fetchComments()
         fetchPosts()
@@ -103,6 +105,7 @@ class RootViewModel {
             print("🚕🚕🚕🚕🚕🚕🚕🚕🚕")
             self.coreDataManager.saveArticles(articles: data) {
                 print("🚛🚛🚛🚛🚛🚛🚛🚛🚛🚛")
+                self.getPostsFromCoreDataToDomain()
             }  
         }.disposed(by: disposeBag)
     }
@@ -111,7 +114,7 @@ class RootViewModel {
         
     }
     
-    func composeArticle(posts:[Post], users:[User], comments:[Comment]) -> [Article] {
+    private func composeArticle(posts:[Post], users:[User], comments:[Comment]) -> [Article] {
         var articles: [Article] = []
         for post in posts {
             let userId = post.userId
@@ -123,5 +126,11 @@ class RootViewModel {
             }
         }
         return articles
+    }
+    
+    private func getPostsFromCoreDataToDomain() {
+        let posts = coreDataManager.fetchPosts().map {$0.mapped() }
+        coreDataPosts.accept(posts)
+        loadInProgress.accept(false)
     }
 }

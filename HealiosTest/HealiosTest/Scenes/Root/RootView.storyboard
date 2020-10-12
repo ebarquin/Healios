@@ -14,13 +14,62 @@
                     <view key="view" contentMode="scaleToFill" id="C3s-sd-hiM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tIi-3u-btb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="48" id="ozx-GA-Dbs" customClass="RootCell" customModule="HealiosTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ozx-GA-Dbs" id="MDZ-wL-RwZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h27-jV-sow">
+                                                    <rect key="frame" x="20" y="12" width="374" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h27-jV-sow" firstAttribute="top" secondItem="MDZ-wL-RwZ" secondAttribute="top" constant="12" id="1rf-2o-Ata"/>
+                                                <constraint firstAttribute="bottom" secondItem="h27-jV-sow" secondAttribute="bottom" constant="12" id="9bX-o1-g5t"/>
+                                                <constraint firstItem="h27-jV-sow" firstAttribute="centerX" secondItem="MDZ-wL-RwZ" secondAttribute="centerX" id="Ak0-S5-Qdp"/>
+                                                <constraint firstItem="h27-jV-sow" firstAttribute="centerY" secondItem="MDZ-wL-RwZ" secondAttribute="centerY" id="KoO-nQ-k37"/>
+                                                <constraint firstItem="h27-jV-sow" firstAttribute="leading" secondItem="MDZ-wL-RwZ" secondAttribute="leading" constant="20" id="hpO-xf-A6i"/>
+                                                <constraint firstAttribute="trailing" secondItem="h27-jV-sow" secondAttribute="trailing" constant="20" id="lYW-jy-p3l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postTitleLabel" destination="h27-jV-sow" id="pti-Qt-I8n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="MVP-gu-mhv">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="tIi-3u-btb" secondAttribute="bottom" id="VX9-5v-4dP"/>
+                            <constraint firstItem="tIi-3u-btb" firstAttribute="top" secondItem="F1M-fR-po2" secondAttribute="top" id="eqa-k9-pAV"/>
+                            <constraint firstItem="tIi-3u-btb" firstAttribute="trailing" secondItem="F1M-fR-po2" secondAttribute="trailing" id="ft2-NR-XnZ"/>
+                            <constraint firstItem="tIi-3u-btb" firstAttribute="leading" secondItem="F1M-fR-po2" secondAttribute="leading" id="ks6-Xq-tRr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="F1M-fR-po2"/>
                     </view>
+                    <connections>
+                        <outlet property="spinner" destination="MVP-gu-mhv" id="F4w-5k-UvE"/>
+                        <outlet property="tableView" destination="tIi-3u-btb" id="p43-Ax-FjF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZC-zQ-rXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="131"/>
+            <point key="canvasLocation" x="113.04347826086958" y="130.58035714285714"/>
         </scene>
     </scenes>
 </document>
