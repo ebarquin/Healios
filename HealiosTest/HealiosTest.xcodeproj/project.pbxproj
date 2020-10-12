@@ -45,6 +45,15 @@
 		DF3193022533AAE9003485C2 /* Posting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF3193002533AAE9003485C2 /* Posting.xcdatamodeld */; };
 		DF3193042533B0EF003485C2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193032533B0EF003485C2 /* Article.swift */; };
 		DF3193072533B26D003485C2 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193062533B26D003485C2 /* EventManager.swift */; };
+		DF3193142534563D003485C2 /* PostRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193132534563D003485C2 /* PostRepositoryTests.swift */; };
+		DF31931725345758003485C2 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31931625345758003485C2 /* MockAPIClient.swift */; };
+		DF31931A25345C40003485C2 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31931925345C40003485C2 /* JSONDecoder+Extension.swift */; };
+		DF31931C25345D4D003485C2 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31931B25345D4D003485C2 /* XCTestCase+Extension.swift */; };
+		DF31931F25345E88003485C2 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = DF31931E25345E88003485C2 /* posts.json */; };
+		DF31932225345EE4003485C2 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = DF31932125345EE4003485C2 /* users.json */; };
+		DF31932425345F57003485C2 /* UserRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932325345F57003485C2 /* UserRepositoryTest.swift */; };
+		DF31932725346019003485C2 /* CommentRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932625346019003485C2 /* CommentRepositoryTests.swift */; };
+		DF31932925346092003485C2 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = DF31932825346092003485C2 /* comments.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +111,15 @@
 		DF3193012533AAE9003485C2 /* Posting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posting.xcdatamodel; sourceTree = "<group>"; };
 		DF3193032533B0EF003485C2 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		DF3193062533B26D003485C2 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		DF3193132534563D003485C2 /* PostRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryTests.swift; sourceTree = "<group>"; };
+		DF31931625345758003485C2 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		DF31931925345C40003485C2 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		DF31931B25345D4D003485C2 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		DF31931E25345E88003485C2 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		DF31932125345EE4003485C2 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		DF31932325345F57003485C2 /* UserRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTest.swift; sourceTree = "<group>"; };
+		DF31932625346019003485C2 /* CommentRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepositoryTests.swift; sourceTree = "<group>"; };
+		DF31932825346092003485C2 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +195,8 @@
 		DF31921E25319D40003485C2 /* HealiosTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				DF31931825345C1C003485C2 /* Helpers */,
+				DF3193152534573B003485C2 /* Dummies */,
 				DF3192652531B152003485C2 /* Repositories */,
 				DF31922125319D40003485C2 /* Info.plist */,
 			);
@@ -319,7 +339,9 @@
 		DF3192662531B16D003485C2 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				DF31931D25345E6D003485C2 /* JSON */,
 				DF3192672531B1D6003485C2 /* PostServiceRequestTests.swift */,
+				DF3193132534563D003485C2 /* PostRepositoryTests.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -327,7 +349,9 @@
 		DF3192692531B3AD003485C2 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				DF31932025345ED3003485C2 /* JSON */,
 				DF31926A2531B3D1003485C2 /* UseerServiceRequestTests.swift */,
+				DF31932325345F57003485C2 /* UserRepositoryTest.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -335,7 +359,9 @@
 		DF31926C2531B47A003485C2 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				DF31932525345FFB003485C2 /* JSON */,
 				DF31926D2531B4A7003485C2 /* CommentServiceRequestTests.swift */,
+				DF31932625346019003485C2 /* CommentRepositoryTests.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -389,6 +415,47 @@
 				DF3193062533B26D003485C2 /* EventManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		DF3193152534573B003485C2 /* Dummies */ = {
+			isa = PBXGroup;
+			children = (
+				DF31931625345758003485C2 /* MockAPIClient.swift */,
+			);
+			path = Dummies;
+			sourceTree = "<group>";
+		};
+		DF31931825345C1C003485C2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DF31931925345C40003485C2 /* JSONDecoder+Extension.swift */,
+				DF31931B25345D4D003485C2 /* XCTestCase+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DF31931D25345E6D003485C2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DF31931E25345E88003485C2 /* posts.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		DF31932025345ED3003485C2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DF31932125345EE4003485C2 /* users.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		DF31932525345FFB003485C2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DF31932825346092003485C2 /* comments.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		F3C0EBBC34295384546FFE14 /* Pods */ = {
@@ -496,6 +563,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF31932225345EE4003485C2 /* users.json in Resources */,
+				DF31931F25345E88003485C2 /* posts.json in Resources */,
+				DF31932925346092003485C2 /* comments.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,8 +677,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF31931A25345C40003485C2 /* JSONDecoder+Extension.swift in Sources */,
 				DF31926B2531B3D1003485C2 /* UseerServiceRequestTests.swift in Sources */,
+				DF31932425345F57003485C2 /* UserRepositoryTest.swift in Sources */,
+				DF3193142534563D003485C2 /* PostRepositoryTests.swift in Sources */,
+				DF31931725345758003485C2 /* MockAPIClient.swift in Sources */,
+				DF31932725346019003485C2 /* CommentRepositoryTests.swift in Sources */,
 				DF31926E2531B4A7003485C2 /* CommentServiceRequestTests.swift in Sources */,
+				DF31931C25345D4D003485C2 /* XCTestCase+Extension.swift in Sources */,
 				DF3192682531B1D7003485C2 /* PostServiceRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
