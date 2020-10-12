@@ -17,9 +17,6 @@ class RootViewModel {
     private let eventManager: EventManager
     private let coreDataManager: CoreDataManagerDefault
     private let disposeBag = DisposeBag()
-//    let posts = BehaviorRelay<[Post]>(value: [])
-//    let users = BehaviorRelay<[User]>(value: [])
-//    let comments = BehaviorRelay<[Comment]>(value: [])
     let coreDataPosts = BehaviorRelay<[Post]>(value:[])
     let didPersistPosts = PublishSubject<Void>()
     let didPersistUsers = PublishSubject<Void>()
@@ -46,8 +43,6 @@ class RootViewModel {
         if status {
             getPostsFromCoreDataToDomain()
         } else {
-            
-            
             fetchComments()
             fetchPosts()
             fetchUsers()
@@ -60,7 +55,6 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let posts = response.map { $0.mapped() }
-//                    self.posts.accept(posts)
                     self.coreDataManager.savePosts(posts: posts) {
                         self.didPersistPosts.onNext(())
                     }
@@ -78,7 +72,6 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let users = response.map { $0.mapped() }
-//                    self.users.accept(users)
                     self.coreDataManager.saveUsers(users: users) {
                         self.didPersistUsers.onNext(())
                     }
@@ -96,7 +89,6 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let comments = response.map { $0.mapped() }
-//                    self.comments.accept(comments)
                     self.coreDataManager.saveComments(comments: comments) {
                         self.didPersistComments.onNext(())
                     }
@@ -116,12 +108,10 @@ class RootViewModel {
         eventManager.didPersistData.subscribe { _ in
             UserDefaults.standard.set(true, forKey: Constants.IS_DOWNLOAD )
             self.getPostsFromCoreDataToDomain()
-            print("🚕🚕🚕🚕🚕🚕🚕🚕🚕")
         }.disposed(by: disposeBag)
     }
     
     private func getPostsFromCoreDataToDomain() {
-//        eventManager.bindTableView.onNext(())
         let posts = coreDataManager.fetchPosts().map {$0.mapped() }
         coreDataPosts.accept(posts)
         loadInProgress.accept(false)

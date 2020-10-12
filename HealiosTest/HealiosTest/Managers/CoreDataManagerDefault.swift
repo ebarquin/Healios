@@ -29,7 +29,7 @@ class CoreDataManagerDefault: CoreDataManager {
         container.loadPersistentStores { (desc, error) in
             if let error = error {
                 print("Error loading stores \(desc) - \(error)")
-                return
+                fatalError()
             }
             
             print("Database ready!")
@@ -156,35 +156,4 @@ class CoreDataManagerDefault: CoreDataManager {
         
         return commentEntities
     }
-    
-    func deleteAll() {
-        let context = container.viewContext
-        let postsFetchRequest = NSFetchRequest<PostEntity>(entityName: "PostEntity")
-        let usersFetchRequest = NSFetchRequest<UserEntity>(entityName: "UserEntity")
-        let comentsFetchRequest = NSFetchRequest<CommentEntity>(entityName: "CommentEntity")
-        
-        do {
-            let posts = try context.fetch(postsFetchRequest)
-            let users = try context.fetch(usersFetchRequest)
-            let comments = try context.fetch(comentsFetchRequest)
-
-            for post in posts {
-                context.delete(post)
-            }
-            for user in users {
-                context.delete(user)
-            }
-            for comment in comments {
-                context.delete(comment)
-            }
-            
-            try context.save()
-
-        } catch {
-            // Error Handling
-            // ...
-        }
-        
-    }
-    
 }

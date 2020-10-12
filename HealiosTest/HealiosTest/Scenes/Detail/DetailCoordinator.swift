@@ -24,7 +24,8 @@ final class DetailCoordinator: Coordinator {
     private func setupViewController() -> UIViewController {
         let viewController = DetailViewController.initFromStoryboard()
         let coreDataManager = CoreDataManagerDefault.shared
-        let viewModel = DetailViewModel(post: post, coreDataManager: coreDataManager)
+        let eventManager = EventManager()
+        let viewModel = DetailViewModel(post: post, coreDataManager: coreDataManager, eventManager: eventManager)
         viewController.viewModel = viewModel
         
         return viewController

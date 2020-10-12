@@ -28,9 +28,7 @@ class RootViewController: UIViewController, StoryboardInitiable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
-    
 }
 
 extension RootViewController {
@@ -38,7 +36,7 @@ extension RootViewController {
         bindIsLoading()
         bindItemSelected()
         DispatchQueue.main.async {
-            //Needed for circunvent issue:
+            //Needed for circunvent issu/Users/eugenio/Documents/Code3/HealiosTest/HealiosTest/Scenes/Root/RootViewController.swifte:
             //https://github.com/ReactiveX/RxSwift/issues/2081
             //https://github.com/RxSwiftCommunity/RxDataSources/issues/331
             self.bindTableView()
@@ -67,7 +65,6 @@ extension RootViewController {
                 self.tableView.deselectRow(at: indexPath, animated: true)
                 guard let post = cell.post else { return }
                 self.navigateToDetail(post)
-                print("navigation")
             }
         }.disposed(by: disposeBag)
     }
@@ -81,6 +78,4 @@ extension RootViewController {
             spinner.stopAnimating()
         }
     }
-    
-    
 }

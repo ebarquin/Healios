@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, StoryboardInitiable {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var viewModel: DetailViewModel?
     let disposeBag = DisposeBag()
@@ -45,7 +46,7 @@ extension DetailViewController {
             //https://github.com/RxSwiftCommunity/RxDataSources/issues/331
             self.bindTableView()
         }
-        
+        bindIsLoading()
     }
     
     private func bindUser() {
@@ -67,5 +68,22 @@ extension DetailViewController {
                 cellToUse.configureCell(with: comment)
             }
         }.disposed(by: disposeBag)
+    }
+    
+    private func bindIsLoading() {
+        viewModel?.onShowLoadingHud
+        .map { [weak self] in self?.isLoadingVisible($0) }
+        .subscribe()
+        .disposed(by: disposeBag)
+    }
+    
+    private func isLoadingVisible(_ visible: Bool) {
+        if visible {
+            spinner.isHidden = false
+            spinner.startAnimating()
+        } else {
+            spinner.isHidden = true
+            spinner.stopAnimating()
+        }
     }
 }
