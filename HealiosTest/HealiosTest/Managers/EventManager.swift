@@ -11,7 +11,8 @@ import RxCocoa
 
 class EventManager {
     static let shared = EventManager()
-    var didGetDataFromService = PublishSubject<Void>()
+    var didPersistData = PublishSubject<Void>()
+
     
     
 }

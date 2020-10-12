@@ -19,7 +19,6 @@ final class AppCoordinator: Coordinator {
     override func start() {
         customizeAppearance()
         window.rootViewController = navigationController
-        navigationController.navigationBar.isHidden = true
         let coordinator = RootCoordinator(navigationController: navigationController)
         coordinator.start()
         add(child: coordinator)

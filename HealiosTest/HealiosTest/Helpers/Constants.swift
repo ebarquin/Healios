@@ -8,4 +8,5 @@
 
 struct Constants {
     static let HOST_URL = "https://jsonplaceholder.typicode.com/"
+    static let IS_DOWNLOAD = "IS_DOWNLOAD"
 }

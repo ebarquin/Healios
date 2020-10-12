@@ -35,7 +35,7 @@ final class RootCoordinator: Coordinator {
     }
     
     private func navigateToDetail(post: Post) {
-        let coordinator = DetailCoordinator(navigationController: navigationController)
+        let coordinator = DetailCoordinator(navigationController: navigationController, post: post)
         add(child: coordinator)
         coordinator.start()
     }

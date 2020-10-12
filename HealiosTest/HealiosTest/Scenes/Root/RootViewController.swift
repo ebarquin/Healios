@@ -21,16 +21,28 @@ class RootViewController: UIViewController, StoryboardInitiable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
+        
         viewModel?.fetchData()
+        bindViewModel()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
 }
 
 extension RootViewController {
     func bindViewModel() {
         bindIsLoading()
-        bindTableView()
         bindItemSelected()
+        DispatchQueue.main.async {
+            //Needed for circunvent issue:
+            //https://github.com/ReactiveX/RxSwift/issues/2081
+            //https://github.com/RxSwiftCommunity/RxDataSources/issues/331
+            self.bindTableView()
+        }
     }
     
     private func bindIsLoading() {
@@ -48,16 +60,6 @@ extension RootViewController {
         }.disposed(by: disposeBag)
     }
     
-    private func isLoadingVisible(_ visible: Bool) {
-        if visible {
-            spinner.isHidden = false
-            spinner.startAnimating()
-        } else {
-            spinner.isHidden = true
-            spinner.stopAnimating()
-        }
-    }
-    
     private func bindItemSelected() {
         tableView.rx.itemSelected.subscribe { indexPath in
             if let indexPath = indexPath.element,
@@ -69,4 +71,16 @@ extension RootViewController {
             }
         }.disposed(by: disposeBag)
     }
+    
+    private func isLoadingVisible(_ visible: Bool) {
+        if visible {
+            spinner.isHidden = false
+            spinner.startAnimating()
+        } else {
+            spinner.isHidden = true
+            spinner.stopAnimating()
+        }
+    }
+    
+    
 }

@@ -8,6 +8,6 @@
 
 extension FetchCommentsResponse {
     func mapped() -> Comment {
-        return Comment(postId: self.postId, id: self.id, email: self.email, body: self.body)
+        return Comment(postId: self.postId, id: self.id, name: self.name, email: self.email, body: self.body)
     }
 }

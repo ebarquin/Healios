@@ -9,9 +9,11 @@
 import UIKit
 final class DetailCoordinator: Coordinator {
     private unowned let navigationController: UINavigationController
+    private let post: Post
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, post: Post) {
         self.navigationController = navigationController
+        self.post = post
     }
     
     override func start() {
@@ -21,7 +23,8 @@ final class DetailCoordinator: Coordinator {
     
     private func setupViewController() -> UIViewController {
         let viewController = DetailViewController.initFromStoryboard()
-        let viewModel = DetailViewModel()
+        let coreDataManager = CoreDataManagerDefault.shared
+        let viewModel = DetailViewModel(post: post, coreDataManager: coreDataManager)
         viewController.viewModel = viewModel
         
         return viewController

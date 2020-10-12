@@ -17,13 +17,13 @@ class RootViewModel {
     private let eventManager: EventManager
     private let coreDataManager: CoreDataManagerDefault
     private let disposeBag = DisposeBag()
-    let posts = BehaviorRelay<[Post]>(value: [])
-    let users = BehaviorRelay<[User]>(value: [])
-    let comments = BehaviorRelay<[Comment]>(value: [])
+//    let posts = BehaviorRelay<[Post]>(value: [])
+//    let users = BehaviorRelay<[User]>(value: [])
+//    let comments = BehaviorRelay<[Comment]>(value: [])
     let coreDataPosts = BehaviorRelay<[Post]>(value:[])
-    let onGettingPosts = PublishSubject<Void>()
-    let onGettinUsers = PublishSubject<Void>()
-    let onGettinComments = PublishSubject<Void>()
+    let didPersistPosts = PublishSubject<Void>()
+    let didPersistUsers = PublishSubject<Void>()
+    let didPersistComments = PublishSubject<Void>()
     private let loadInProgress = BehaviorRelay<Bool>(value: false)
     var onShowLoadingHud: Observable<Bool> {
         return loadInProgress
@@ -40,11 +40,18 @@ class RootViewModel {
     }
     
     func fetchData() {
-        loadInProgress.accept(true)
         bind()
-        fetchComments()
-        fetchPosts()
-        fetchUsers()
+        loadInProgress.accept(true)
+        let status = UserDefaults.standard.bool(forKey: Constants.IS_DOWNLOAD)
+        if status {
+            getPostsFromCoreDataToDomain()
+        } else {
+            
+            
+            fetchComments()
+            fetchPosts()
+            fetchUsers()
+        }
     }
     
     private func fetchPosts() {
@@ -53,8 +60,10 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let posts = response.map { $0.mapped() }
-                    self.posts.accept(posts)
-                    self.onGettingPosts.onNext(())
+//                    self.posts.accept(posts)
+                    self.coreDataManager.savePosts(posts: posts) {
+                        self.didPersistPosts.onNext(())
+                    }
                 }
             case .error:
                 print("error downloading posts")
@@ -69,8 +78,10 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let users = response.map { $0.mapped() }
-                    self.users.accept(users)
-                    self.onGettinUsers.onNext(())
+//                    self.users.accept(users)
+                    self.coreDataManager.saveUsers(users: users) {
+                        self.didPersistUsers.onNext(())
+                    }
                 }
             case .error:
                 print("error downloading users")
@@ -85,8 +96,10 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let comments = response.map { $0.mapped() }
-                    self.comments.accept(comments)
-                    self.onGettinComments.onNext(())
+//                    self.comments.accept(comments)
+                    self.coreDataManager.saveComments(comments: comments) {
+                        self.didPersistComments.onNext(())
+                    }
                 }
             case .error:
                 print("error downloading comments")
@@ -96,39 +109,19 @@ class RootViewModel {
     }
     
     private func bind() {
-        let observable = Observable.zip(onGettinComments, onGettingPosts, onGettinUsers)
+        let observable = Observable.zip(didPersistComments, didPersistPosts, didPersistUsers)
         observable.subscribe { _ in
-            self.eventManager.didGetDataFromService.onNext(())
+            self.eventManager.didPersistData.onNext(())
         }.disposed(by: disposeBag)
-        eventManager.didGetDataFromService.subscribe { _ in
-            let data = self.composeArticle(posts: self.posts.value, users: self.users.value, comments: self.comments.value)
+        eventManager.didPersistData.subscribe { _ in
+            UserDefaults.standard.set(true, forKey: Constants.IS_DOWNLOAD )
+            self.getPostsFromCoreDataToDomain()
             print("🚕🚕🚕🚕🚕🚕🚕🚕🚕")
-            self.coreDataManager.saveArticles(articles: data) {
-                print("🚛🚛🚛🚛🚛🚛🚛🚛🚛🚛")
-                self.getPostsFromCoreDataToDomain()
-            }  
         }.disposed(by: disposeBag)
-    }
-    
-    func completion() {
-        
-    }
-    
-    private func composeArticle(posts:[Post], users:[User], comments:[Comment]) -> [Article] {
-        var articles: [Article] = []
-        for post in posts {
-            let userId = post.userId
-            let postId = post.id
-            let comments = comments.filter { $0.postId == postId}
-            if let user = users.filter({ $0.id == userId }).first  {
-                let article = Article(post: post, user: user, comments: comments)
-                articles.append(article)
-            }
-        }
-        return articles
     }
     
     private func getPostsFromCoreDataToDomain() {
+//        eventManager.bindTableView.onNext(())
         let posts = coreDataManager.fetchPosts().map {$0.mapped() }
         coreDataPosts.accept(posts)
         loadInProgress.accept(false)

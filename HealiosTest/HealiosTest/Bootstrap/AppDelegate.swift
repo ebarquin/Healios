@@ -21,6 +21,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManagerDefault.shared.setupDataBase()
         return true
     }
-
 }
 
