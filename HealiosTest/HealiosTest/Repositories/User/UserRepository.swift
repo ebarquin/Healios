@@ -19,6 +19,6 @@ public class UserRepositoryDefault: UserRepository {
         self.apiClient = apiClient
     }
     func fetchUsers() -> Observable<[FetchUsersResponse]?> {
-        return apiClient.request(PostServiceRequest.fetchPosts)
+        return apiClient.request(UserServiceRequest.fetchUsers)
     }
 }

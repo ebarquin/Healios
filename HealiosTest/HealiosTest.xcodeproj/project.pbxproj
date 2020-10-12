@@ -42,6 +42,9 @@
 		DF3192782531BCCD003485C2 /* FetchCommentsResponse+mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3192772531BCCD003485C2 /* FetchCommentsResponse+mapper.swift */; };
 		DF31927B2531BD62003485C2 /* FetchUserResponse+mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31927A2531BD62003485C2 /* FetchUserResponse+mapper.swift */; };
 		DF31927E2531BDD1003485C2 /* FetchPostsResponse+mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31927D2531BDD1003485C2 /* FetchPostsResponse+mapper.swift */; };
+		DF3193022533AAE9003485C2 /* Posting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF3193002533AAE9003485C2 /* Posting.xcdatamodeld */; };
+		DF3193042533B0EF003485C2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193032533B0EF003485C2 /* Article.swift */; };
+		DF3193072533B26D003485C2 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193062533B26D003485C2 /* EventManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		DF3192772531BCCD003485C2 /* FetchCommentsResponse+mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchCommentsResponse+mapper.swift"; sourceTree = "<group>"; };
 		DF31927A2531BD62003485C2 /* FetchUserResponse+mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchUserResponse+mapper.swift"; sourceTree = "<group>"; };
 		DF31927D2531BDD1003485C2 /* FetchPostsResponse+mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchPostsResponse+mapper.swift"; sourceTree = "<group>"; };
+		DF3193012533AAE9003485C2 /* Posting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Posting.xcdatamodel; sourceTree = "<group>"; };
+		DF3193032533B0EF003485C2 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		DF3193062533B26D003485C2 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +158,8 @@
 		DF31920725319D3D003485C2 /* HealiosTest */ = {
 			isa = PBXGroup;
 			children = (
+				DF3193052533B25A003485C2 /* Managers */,
+				DF3192FD2533A97E003485C2 /* Persistence */,
 				DF31926F2531BBAF003485C2 /* Model */,
 				DF31924C2531A9CB003485C2 /* Repositories */,
 				DF31923D2531A31D003485C2 /* Networking */,
@@ -338,6 +346,7 @@
 				DF3192702531BBC8003485C2 /* Comment.swift */,
 				DF3192722531BBD3003485C2 /* User.swift */,
 				DF3192742531BBDC003485C2 /* Post.swift */,
+				DF3193032533B0EF003485C2 /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +373,22 @@
 				DF31927D2531BDD1003485C2 /* FetchPostsResponse+mapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		DF3192FD2533A97E003485C2 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				DF3193002533AAE9003485C2 /* Posting.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DF3193052533B25A003485C2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DF3193062533B26D003485C2 /* EventManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F3C0EBBC34295384546FFE14 /* Pods */ = {
@@ -546,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF31922F25319FC9003485C2 /* Coordinator.swift in Sources */,
+				DF3193022533AAE9003485C2 /* Posting.xcdatamodeld in Sources */,
 				DF3192372531A090003485C2 /* RootViewModel.swift in Sources */,
 				DF31925F2531AF90003485C2 /* CommentRepository.swift in Sources */,
 				DF3192752531BBDC003485C2 /* Post.swift in Sources */,
@@ -568,7 +594,9 @@
 				DF3192452531A3EB003485C2 /* OnResult.swift in Sources */,
 				DF3192782531BCCD003485C2 /* FetchCommentsResponse+mapper.swift in Sources */,
 				DF31920925319D3D003485C2 /* AppDelegate.swift in Sources */,
+				DF3193072533B26D003485C2 /* EventManager.swift in Sources */,
 				DF31925A2531AE19003485C2 /* FetchUsersResponse.swift in Sources */,
+				DF3193042533B0EF003485C2 /* Article.swift in Sources */,
 				DF3192572531ADC6003485C2 /* UserRepository.swift in Sources */,
 				DF31923F2531A343003485C2 /* APIClient.swift in Sources */,
 				DF3192732531BBD3003485C2 /* User.swift in Sources */,
@@ -836,6 +864,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DF3193002533AAE9003485C2 /* Posting.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DF3193012533AAE9003485C2 /* Posting.xcdatamodel */,
+			);
+			currentVersion = DF3193012533AAE9003485C2 /* Posting.xcdatamodel */;
+			path = Posting.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DF3191FD25319D3D003485C2 /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class RootViewController: UIViewController, StoryboardInitiable {
     static var storyboardName: String = "RootView"
