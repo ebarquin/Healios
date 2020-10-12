@@ -57,6 +57,10 @@
 		DF31932B25346ABD003485C2 /* CoreDataManagerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932A25346ABD003485C2 /* CoreDataManagerDefault.swift */; };
 		DF31932D2534AD7B003485C2 /* RootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932C2534AD7B003485C2 /* RootCell.swift */; };
 		DF31932F2534AF8F003485C2 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31932E2534AF8F003485C2 /* PostEntity.swift */; };
+		DF3193322534BE59003485C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193312534BE59003485C2 /* DetailViewController.swift */; };
+		DF3193342534BE65003485C2 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193332534BE65003485C2 /* DetailCoordinator.swift */; };
+		DF3193362534BE70003485C2 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3193352534BE70003485C2 /* DetailViewModel.swift */; };
+		DF3193382534BE7D003485C2 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF3193372534BE7C003485C2 /* DetailView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,10 @@
 		DF31932A25346ABD003485C2 /* CoreDataManagerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerDefault.swift; sourceTree = "<group>"; };
 		DF31932C2534AD7B003485C2 /* RootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCell.swift; sourceTree = "<group>"; };
 		DF31932E2534AF8F003485C2 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
+		DF3193312534BE59003485C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DF3193332534BE65003485C2 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		DF3193352534BE70003485C2 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		DF3193372534BE7C003485C2 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +236,7 @@
 		DF3192302531A01E003485C2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DF3193302534BE46003485C2 /* Detail */,
 				DF3192312531A02F003485C2 /* Root */,
 			);
 			path = Scenes;
@@ -459,6 +468,17 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		DF3193302534BE46003485C2 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DF3193312534BE59003485C2 /* DetailViewController.swift */,
+				DF3193372534BE7C003485C2 /* DetailView.storyboard */,
+				DF3193352534BE70003485C2 /* DetailViewModel.swift */,
+				DF3193332534BE65003485C2 /* DetailCoordinator.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		F3C0EBBC34295384546FFE14 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +576,7 @@
 			files = (
 				DF31921525319D40003485C2 /* LaunchScreen.storyboard in Resources */,
 				DF3192392531A09F003485C2 /* RootView.storyboard in Resources */,
+				DF3193382534BE7D003485C2 /* DetailView.storyboard in Resources */,
 				DF31921225319D40003485C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF31922F25319FC9003485C2 /* Coordinator.swift in Sources */,
+				DF3193322534BE59003485C2 /* DetailViewController.swift in Sources */,
 				DF3193022533AAE9003485C2 /* Article.xcdatamodeld in Sources */,
 				DF3192372531A090003485C2 /* RootViewModel.swift in Sources */,
 				DF31925F2531AF90003485C2 /* CommentRepository.swift in Sources */,
@@ -668,8 +690,10 @@
 				DF3192452531A3EB003485C2 /* OnResult.swift in Sources */,
 				DF3192782531BCCD003485C2 /* FetchCommentsResponse+mapper.swift in Sources */,
 				DF31920925319D3D003485C2 /* AppDelegate.swift in Sources */,
+				DF3193342534BE65003485C2 /* DetailCoordinator.swift in Sources */,
 				DF3193072533B26D003485C2 /* EventManager.swift in Sources */,
 				DF31925A2531AE19003485C2 /* FetchUsersResponse.swift in Sources */,
+				DF3193362534BE70003485C2 /* DetailViewModel.swift in Sources */,
 				DF3193042533B0EF003485C2 /* Article.swift in Sources */,
 				DF3192572531ADC6003485C2 /* UserRepository.swift in Sources */,
 				DF31923F2531A343003485C2 /* APIClient.swift in Sources */,

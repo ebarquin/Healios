@@ -17,7 +17,7 @@ class RootViewController: UIViewController, StoryboardInitiable {
     
     var viewModel: RootViewModel?
     let disposeBag = DisposeBag()
-    let navigateToDetail: ((Post)-> Void) = {_ in}
+    var navigateToDetail: ((Post)-> Void) = {_ in}
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -29,7 +29,14 @@ final class RootCoordinator: Coordinator {
         let coreDataManager = CoreDataManagerDefault.shared
         let viewModel = RootViewModel(commentRepository: commentRepository, userRepository: userRepository, postRepository: postRepository, eventManager: eventManager, coreDataManager: coreDataManager)
         viewController.viewModel = viewModel
+        viewController.navigateToDetail = navigateToDetail
     
         return viewController
+    }
+    
+    private func navigateToDetail(post: Post) {
+        let coordinator = DetailCoordinator(navigationController: navigationController)
+        add(child: coordinator)
+        coordinator.start()
     }
 }
