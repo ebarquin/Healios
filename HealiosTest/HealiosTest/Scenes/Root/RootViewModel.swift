@@ -15,6 +15,7 @@ class RootViewModel {
     private let userRepository: UserRepository
     private let postRepository: PostRepository
     private let eventManager: EventManager
+    private let coreDataManager: CoreDataManagerDefault
     private let disposeBag = DisposeBag()
     let posts = BehaviorRelay<[Post]>(value: [])
     let users = BehaviorRelay<[User]>(value: [])
@@ -29,11 +30,12 @@ class RootViewModel {
             .distinctUntilChanged()
     }
     
-    init(commentRepository: CommentRepository, userRepository: UserRepository, postRepository: PostRepository, eventManager: EventManager) {
+    init(commentRepository: CommentRepository, userRepository: UserRepository, postRepository: PostRepository, eventManager: EventManager, coreDataManager: CoreDataManagerDefault) {
         self.commentRepository = commentRepository
         self.userRepository = userRepository
         self.postRepository = postRepository
         self.eventManager = eventManager
+        self.coreDataManager = coreDataManager
     }
     
     func fetchData() {
@@ -97,11 +99,19 @@ class RootViewModel {
             self.eventManager.didGetDataFromService.onNext(())
         }.disposed(by: disposeBag)
         eventManager.didGetDataFromService.subscribe { _ in
-            let data = self.composeData(posts: self.posts.value, users: self.users.value, comments: self.comments.value)
+            let data = self.composeArticle(posts: self.posts.value, users: self.users.value, comments: self.comments.value)
+            print("🚕🚕🚕🚕🚕🚕🚕🚕🚕")
+            self.coreDataManager.saveArticles(articles: data) {
+                print("🚛🚛🚛🚛🚛🚛🚛🚛🚛🚛")
+            }  
         }.disposed(by: disposeBag)
     }
     
-    func composeData(posts:[Post], users:[User], comments:[Comment]) -> [Article] {
+    func completion() {
+        
+    }
+    
+    func composeArticle(posts:[Post], users:[User], comments:[Comment]) -> [Article] {
         var articles: [Article] = []
         for post in posts {
             let userId = post.userId

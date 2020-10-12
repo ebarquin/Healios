@@ -26,7 +26,8 @@ final class RootCoordinator: Coordinator {
         let userRepository = UserRepositoryDefault()
         let postRepository = PostRepositoryDefault()
         let eventManager = EventManager.shared
-        let viewModel = RootViewModel(commentRepository: commentRepository, userRepository: userRepository, postRepository: postRepository, eventManager: eventManager)
+        let coreDataManager = CoreDataManagerDefault.shared
+        let viewModel = RootViewModel(commentRepository: commentRepository, userRepository: userRepository, postRepository: postRepository, eventManager: eventManager, coreDataManager: coreDataManager)
         viewController.viewModel = viewModel
     
         return viewController
