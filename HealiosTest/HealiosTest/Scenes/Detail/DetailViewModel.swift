@@ -12,7 +12,9 @@ import RxCocoa
 class DetailViewModel {
     let post: Post
     let disposeBag = DisposeBag()
-    let coreDataManager: CoreDataManagerDefault
+    let coreDataManager: CoreDataStack
+    let userCoreDataService: UserCoreDataService
+    let commentCoreDataService: CommentCoreDataService
     let eventManager: EventManager
     let onGettingUser = PublishSubject<User>()
     let onGettingComments = PublishSubject<[Comment]>()
@@ -25,10 +27,12 @@ class DetailViewModel {
             .distinctUntilChanged()
     }
     
-    init(post: Post, coreDataManager: CoreDataManagerDefault, eventManager: EventManager) {
+    init(post: Post, coreDataManager: CoreDataStack, eventManager: EventManager, userCoreDataService: UserCoreDataService, commentCoreDataService: CommentCoreDataService) {
         self.post = post
         self.coreDataManager = coreDataManager
         self.eventManager = eventManager
+        self.userCoreDataService = userCoreDataService
+        self.commentCoreDataService = commentCoreDataService
     }
     
     func fetchData() {
@@ -40,14 +44,14 @@ class DetailViewModel {
     
     private func fetchUser() {
         let id = post.userId
-        let userEntity = coreDataManager.fetchUsersById(id: id).first
+        let userEntity = userCoreDataService.fetchUsersById(id: id).first
         guard let user = userEntity?.mapped() else { return }
         onGettingUser.onNext(user)
     }
     
     private func fetchComments() {
         let id = post.id
-        let commentEntities = coreDataManager.fetchCommentsById(id: id)
+        let commentEntities = commentCoreDataService.fetchCommentsById(id: id)
         let comments = commentEntities.map { $0.mapped() }
         onGettingComments.onNext(comments)
         self.comments.accept(comments)

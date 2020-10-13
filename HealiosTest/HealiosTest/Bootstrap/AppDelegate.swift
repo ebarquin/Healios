@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         coordinator = AppCoordinator(window: window!)
         coordinator?.start()
-        CoreDataManagerDefault.shared.setupDataBase()
         return true
     }
 }

@@ -23,9 +23,11 @@ final class DetailCoordinator: Coordinator {
     
     private func setupViewController() -> UIViewController {
         let viewController = DetailViewController.initFromStoryboard()
-        let coreDataManager = CoreDataManagerDefault.shared
+        let coreDataStack = CoreDataStack()
         let eventManager = EventManager()
-        let viewModel = DetailViewModel(post: post, coreDataManager: coreDataManager, eventManager: eventManager)
+        let userCoreDataService = UserCoreDataService(context: coreDataStack.context, coreDataStack: coreDataStack)
+        let commentCoreDataService = CommentCoreDataService(context: coreDataStack.context, coreDataStack: coreDataStack)
+        let viewModel = DetailViewModel(post: post, coreDataManager: coreDataStack, eventManager: eventManager, userCoreDataService: userCoreDataService, commentCoreDataService: commentCoreDataService)
         viewController.viewModel = viewModel
         
         return viewController

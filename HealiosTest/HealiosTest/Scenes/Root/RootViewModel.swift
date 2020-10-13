@@ -15,7 +15,10 @@ class RootViewModel {
     private let userRepository: UserRepository
     private let postRepository: PostRepository
     private let eventManager: EventManager
-    private let coreDataManager: CoreDataManagerDefault
+    private let coreDataStack: CoreDataStack
+    private let postCoreDataService: PostCoreDataService
+    private let userCoreDataService: UserCoreDataService
+    private let commentCoreDataService: CommentCoreDataService
     private let disposeBag = DisposeBag()
     let coreDataPosts = BehaviorRelay<[Post]>(value:[])
     let didPersistPosts = PublishSubject<Void>()
@@ -28,12 +31,15 @@ class RootViewModel {
             .distinctUntilChanged()
     }
     
-    init(commentRepository: CommentRepository, userRepository: UserRepository, postRepository: PostRepository, eventManager: EventManager, coreDataManager: CoreDataManagerDefault) {
+    init(commentRepository: CommentRepository, userRepository: UserRepository, postRepository: PostRepository, eventManager: EventManager, coreDataManager: CoreDataStack, postCoreDataService: PostCoreDataService, userCoreDataService: UserCoreDataService, commentCoreDataService: CommentCoreDataService) {
         self.commentRepository = commentRepository
         self.userRepository = userRepository
         self.postRepository = postRepository
         self.eventManager = eventManager
-        self.coreDataManager = coreDataManager
+        self.coreDataStack = coreDataManager
+        self.postCoreDataService = postCoreDataService
+        self.userCoreDataService = userCoreDataService
+        self.commentCoreDataService = commentCoreDataService
     }
     
     func fetchData() {
@@ -55,7 +61,7 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let posts = response.map { $0.mapped() }
-                    self.coreDataManager.savePosts(posts: posts) {
+                    self.postCoreDataService.savePosts(posts: posts) {
                         self.didPersistPosts.onNext(())
                     }
                 }
@@ -72,7 +78,7 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let users = response.map { $0.mapped() }
-                    self.coreDataManager.saveUsers(users: users) {
+                    self.userCoreDataService.saveUsers(users: users) {
                         self.didPersistUsers.onNext(())
                     }
                 }
@@ -89,7 +95,7 @@ class RootViewModel {
             case .next(let response):
                 if let response = response {
                     let comments = response.map { $0.mapped() }
-                    self.coreDataManager.saveComments(comments: comments) {
+                    self.commentCoreDataService.saveComments(comments: comments) {
                         self.didPersistComments.onNext(())
                     }
                 }
@@ -112,7 +118,7 @@ class RootViewModel {
     }
     
     private func getPostsFromCoreDataToDomain() {
-        let posts = coreDataManager.fetchPosts().map {$0.mapped() }
+        let posts = postCoreDataService.fetchPosts().map {$0.mapped() }
         coreDataPosts.accept(posts)
         loadInProgress.accept(false)
     }
