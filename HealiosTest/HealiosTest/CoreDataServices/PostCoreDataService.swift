@@ -18,7 +18,7 @@ public final class PostCoreDataService {
       self.coreDataStack = coreDataStack
     }
     
-    func savePosts(posts: [Post], completion: (() -> Void)?) {
+    public func savePosts(posts: [Post], completion: (() -> Void)?) {
         var postEntities: [PostEntity] = []
         for post in posts {
             let postEntity = PostEntity(context: context)
@@ -36,9 +36,11 @@ public final class PostCoreDataService {
         }
     }
     
-    func fetchPosts() -> [PostEntity] {
+    public func fetchPosts() -> [PostEntity] {
         let fetchRequest = NSFetchRequest<PostEntity>(entityName: "PostEntity")
         var postEntities: [PostEntity] = []
+        let idSort = NSSortDescriptor(key:"id", ascending:true)
+        fetchRequest.sortDescriptors = [idSort]
         do {
             postEntities = try context.fetch(fetchRequest)
 

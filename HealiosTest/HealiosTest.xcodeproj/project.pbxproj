@@ -66,6 +66,10 @@
 		DF755DF72536077A007CF7D2 /* PostCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755DF62536077A007CF7D2 /* PostCoreDataService.swift */; };
 		DF755DF92536078C007CF7D2 /* UserCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755DF82536078C007CF7D2 /* UserCoreDataService.swift */; };
 		DF755DFB25360798007CF7D2 /* CommentCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755DFA25360798007CF7D2 /* CommentCoreDataService.swift */; };
+		DF755DFE25361738007CF7D2 /* PostCoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755DFD25361738007CF7D2 /* PostCoreDataServiceTests.swift */; };
+		DF755E0025361875007CF7D2 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755DFF25361875007CF7D2 /* CoreDataStackMock.swift */; };
+		DF755E0225362416007CF7D2 /* UserCoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755E0125362416007CF7D2 /* UserCoreDataServiceTests.swift */; };
+		DF755E04253637AC007CF7D2 /* CommentCoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF755E03253637AC007CF7D2 /* CommentCoreDataServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +148,10 @@
 		DF755DF62536077A007CF7D2 /* PostCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoreDataService.swift; sourceTree = "<group>"; };
 		DF755DF82536078C007CF7D2 /* UserCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataService.swift; sourceTree = "<group>"; };
 		DF755DFA25360798007CF7D2 /* CommentCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCoreDataService.swift; sourceTree = "<group>"; };
+		DF755DFD25361738007CF7D2 /* PostCoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoreDataServiceTests.swift; sourceTree = "<group>"; };
+		DF755DFF25361875007CF7D2 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
+		DF755E0125362416007CF7D2 /* UserCoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataServiceTests.swift; sourceTree = "<group>"; };
+		DF755E03253637AC007CF7D2 /* CommentCoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCoreDataServiceTests.swift; sourceTree = "<group>"; };
 		F229E5E9212156EDB07D0310 /* Pods_HealiosTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealiosTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DF294F19407CFFE698F8CF /* Pods-HealiosTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealiosTestTests.release.xcconfig"; path = "Target Support Files/Pods-HealiosTestTests/Pods-HealiosTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +227,7 @@
 		DF31921E25319D40003485C2 /* HealiosTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				DF755DFC25361708007CF7D2 /* CoreDataServices */,
 				DF31931825345C1C003485C2 /* Helpers */,
 				DF3193152534573B003485C2 /* Dummies */,
 				DF3192652531B152003485C2 /* Repositories */,
@@ -451,6 +460,7 @@
 			children = (
 				DF31931925345C40003485C2 /* JSONDecoder+Extension.swift */,
 				DF31931B25345D4D003485C2 /* XCTestCase+Extension.swift */,
+				DF755DFF25361875007CF7D2 /* CoreDataStackMock.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -498,6 +508,16 @@
 				DF755DF62536077A007CF7D2 /* PostCoreDataService.swift */,
 				DF755DF82536078C007CF7D2 /* UserCoreDataService.swift */,
 				DF755DFA25360798007CF7D2 /* CommentCoreDataService.swift */,
+			);
+			path = CoreDataServices;
+			sourceTree = "<group>";
+		};
+		DF755DFC25361708007CF7D2 /* CoreDataServices */ = {
+			isa = PBXGroup;
+			children = (
+				DF755DFD25361738007CF7D2 /* PostCoreDataServiceTests.swift */,
+				DF755E0125362416007CF7D2 /* UserCoreDataServiceTests.swift */,
+				DF755E03253637AC007CF7D2 /* CommentCoreDataServiceTests.swift */,
 			);
 			path = CoreDataServices;
 			sourceTree = "<group>";
@@ -737,11 +757,15 @@
 				DF31926B2531B3D1003485C2 /* UseerServiceRequestTests.swift in Sources */,
 				DF31932425345F57003485C2 /* UserRepositoryTest.swift in Sources */,
 				DF3193142534563D003485C2 /* PostRepositoryTests.swift in Sources */,
+				DF755E04253637AC007CF7D2 /* CommentCoreDataServiceTests.swift in Sources */,
+				DF755DFE25361738007CF7D2 /* PostCoreDataServiceTests.swift in Sources */,
 				DF31931725345758003485C2 /* MockAPIClient.swift in Sources */,
 				DF31932725346019003485C2 /* CommentRepositoryTests.swift in Sources */,
 				DF31926E2531B4A7003485C2 /* CommentServiceRequestTests.swift in Sources */,
 				DF31931C25345D4D003485C2 /* XCTestCase+Extension.swift in Sources */,
 				DF3192682531B1D7003485C2 /* PostServiceRequestTests.swift in Sources */,
+				DF755E0025361875007CF7D2 /* CoreDataStackMock.swift in Sources */,
+				DF755E0225362416007CF7D2 /* UserCoreDataServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

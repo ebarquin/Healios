@@ -6,7 +6,7 @@
 //  Copyright © 2020 Eugenio Barquín. All rights reserved.
 //
 
-struct Post {
+public struct Post {
     let userId: Int
     let id: Int
     let title: String

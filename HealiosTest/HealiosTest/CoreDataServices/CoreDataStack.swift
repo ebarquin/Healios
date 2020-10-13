@@ -9,7 +9,7 @@
 import CoreData
 import RxSwift
 
-class CoreDataStack {
+open class CoreDataStack {
     
     public lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Article")
@@ -26,7 +26,7 @@ class CoreDataStack {
         return container.viewContext
     }()
     
-    init() {
+    public init() {
     }
     
     
